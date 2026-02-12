@@ -1,25 +1,31 @@
 import environ
+import os
 from .base import *
 
 DEBUG = True
 
 env = environ.Env()
-# reading env file
-environ.Env.read_env()
+environ.Env.read_env(env_file=os.path.join(BASE_DIR, ".env"))
+
 
 SECRET_KEY = env("DOCKER_SECRET_KEY")
 DEBUG = True
+
+ALLOWED_HOSTS = env.list("DOCKER_ALLOWED_HOSTS", default=["0.0.0.0", "localhost"])
+
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
 ]
 
-
-
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),  # Oben import os hinzufügen
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": env("DB_NAME"),
+        "USER": env("DB_USER"),
+        "PASSWORD": env("DB_PASSWORD"),
+        "HOST": env("DB_HOST"),
+        "PORT": env("DB_PORT"),
     }
 }
 
@@ -35,3 +41,9 @@ EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = env("DOCKER_EMAIL_HOST_USER")
 EMAIL_HOST_PASSWORD = env("DOCKER_EMAIL_HOST_PASSWORD")
+
+MIDDLEWARE = ['whitenoise.middleware.WhiteNoiseMiddleware'] + MIDDLEWARE
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+

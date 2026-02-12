@@ -5,7 +5,7 @@ DEBUG = True
 
 env = environ.Env()
 # reading env file
-environ.Env.read_env()
+environ.Env.read_env(env_file=os.path.join(BASE_DIR, ".env"))
 
 SECRET_KEY= env("SECRET_KEY")
 DEBUG = True
