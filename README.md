@@ -152,12 +152,12 @@ The behavior of some of the views had to be modified to address functionalities 
     ```
 3. Configure a virtual env and set up the database. See [Link for configuring Virtual Environment](https://docs.python-guide.org/dev/virtualenvs/) and [Link for Database setup](https://www.digitalocean.com/community/tutorials/how-to-set-up-django-with-postgres-nginx-and-gunicorn-on-ubuntu-16-04).
 4. Configure the environment variables.
-    5. Copy the content of the example env file that is inside the truck_signs_designs folder into a .env file:
+    1. Copy the content of the example env file that is inside the truck_signs_designs folder into a .env file:
         ```bash
         cd truck_signs_designs/settings
         cp simple_env_config.env .env
         ```
-    6. The new .env file should contain all the environment variables necessary to run all the django app in all the environments. However, the only needed variables for the development environment to run are the following:
+    2. The new .env file should contain all the environment variables necessary to run all the django app in all the environments. However, the only needed variables for the development environment to run are the following:
         ```bash
         SECRET_KEY
         DB_NAME
@@ -171,7 +171,7 @@ The behavior of some of the views had to be modified to address functionalities 
         EMAIL_HOST_PASSWORD
         ```
         
-    7. For the database, the default configurations should be:
+    3. For the database, the default configurations should be:
         ```bash
         DB_NAME=trucksigns_db
         DB_USER=trucksigns_user
@@ -180,14 +180,14 @@ The behavior of some of the views had to be modified to address functionalities 
         DB_PORT=5432
         ```
         
-    8. The SECRET_KEY is the django secret key. To generate a new one see: [Stackoverflow Link](https://stackoverflow.com/questions/41298963/is-there-a-function-for-generating-settings-secret-key-in-django)
+    4. The SECRET_KEY is the django secret key. To generate a new one see: [Stackoverflow Link](https://stackoverflow.com/questions/41298963/is-there-a-function-for-generating-settings-secret-key-in-django)
 
-    9. **NOTE: not required for exercise**<br/>The STRIPE_PUBLISHABLE_KEY and the STRIPE_SECRET_KEY can be obtained from a developer account in [Stripe](https://stripe.com/). 
+    5. **NOTE: not required for exercise**<br/>The STRIPE_PUBLISHABLE_KEY and the STRIPE_SECRET_KEY can be obtained from a developer account in [Stripe](https://stripe.com/). 
         - To retrieve the keys from a Stripe developer account follow the next instructions:
             1. Log in into your Stripe developer account (stripe.com) or create a new one (stripe.com > Sign Up). This should redirect to the account's Dashboard.
             2. Go to Developer > API Keys, and copy both the Publishable Key and the Secret Key.
 
-    1. The EMAIL_HOST_USER and the EMAIL_HOST_PASSWORD are the credentials to send emails from the website when a client makes a purchase. This is currently disable, but the code to activate this can be found in views.py in the create order view as comments. Therefore, any valid email and password will work.
+    6. The EMAIL_HOST_USER and the EMAIL_HOST_PASSWORD are the credentials to send emails from the website when a client makes a purchase. This is currently disable, but the code to activate this can be found in views.py in the create order view as comments. Therefore, any valid email and password will work.
 
 1. The migrations would like to run automaticly. 
 1. Congratulations =) !!! The App should be running in [localhost:8000](http://localhost:8020)
