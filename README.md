@@ -14,7 +14,8 @@
 * [Quickstart](#quickstart)
 * [How to build the image](#how-to-build-the-image)
 * [Usage](#usage)
-  * [Screenshots of the Django Backend Admin Panel](#screenshots-of-the-django-backend-admin-panel)
+  * [Screenshots Mobile View](#screenshots-mobile-view)
+  * [Screenshots Desktop View](#screenshots-desktop-view)
 * [Useful Links](#useful-links)
 
 
@@ -142,9 +143,7 @@ Optional variables:
 
 <a name="screenshots"></a>
 
-## Screenshots of the Django Backend Admin Panel
-
-### Mobile View
+## Screenshots Mobile View
 
 <div align="center">
 
@@ -153,7 +152,7 @@ Optional variables:
 </div>
 ---
 
-### Desktop View
+## Screenshots Desktop View
 
 ![alt text](./screenshots/Admin_Panel_View.png)
 
