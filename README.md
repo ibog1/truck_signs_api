@@ -11,9 +11,11 @@
 
 ## Table of Contents
 * [Description](#description)
-* [Installation](#installation)
-* [Screenshots of the Django Backend Admin Panel](#screenshots)
-* [Useful Links](#useful_links)
+* [Quickstart](#quickstart)
+* [How to build the image](#how-to-build-the-image)
+* [Usage](#usage)
+* [Screenshots of the Django Backend Admin Panel](#screenshots-of-the-django-backend-admin-panel)
+* [Useful Links](#useful-links)
 
 
 
