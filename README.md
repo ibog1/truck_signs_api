@@ -189,17 +189,16 @@ The behavior of some of the views had to be modified to address functionalities 
 
     6. The EMAIL_HOST_USER and the EMAIL_HOST_PASSWORD are the credentials to send emails from the website when a client makes a purchase. This is currently disable, but the code to activate this can be found in views.py in the create order view as comments. Therefore, any valid email and password will work.
 
-1. The migrations would like to run automaticly. 
+1.  Run the migrations and then the app:
+    ```bash
+    python manage.py migrate
+    python manage.py runserver
+    ``` 
 1. Congratulations =) !!! The App should be running in [localhost:8000](http://localhost:8020)
-1. Superuser was automaticly Created. Data for the Superuser are configuarted in the following envivonment Variables: 
-```bash
-DJANGO_SUPERUSER_USERNAME=administrator
-DJANGO_SUPERUSER_EMAIL=admin@mail.de
-DJANGO_SUPERUSER_PASSWORD=administratorlidreifunfD4f!
-```
-If you don’t set your own values, these defaults will be used automatically.
-If you prefer, you can specify your own credentials by setting these environment variables to custom values.
-
+1. (Optional step) To create a super user run:
+    ```bash
+    python manage.py createsuperuser
+    ``
 
 __NOTE:__ To create Truck vinyls with Truck logos in them, first create the __Category__ Truck Sign, and then the __Product__ (can have any name). This is to make sure the frontend retrieves the Truck vinyls for display in the Product Grid as it only fetches the products of the category Truck Sign.
 
