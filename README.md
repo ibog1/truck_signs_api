@@ -143,7 +143,7 @@ The behavior of some of the views had to be modified to address functionalities 
 ### Installation
 1. Clone the repo:
     ```bash
-    https://github.com/herzogelias/truck_signs_api/
+    https://github.com/ibog1/truck_signs_api/
     ```
 
 1. Navigate to the correct directory:
