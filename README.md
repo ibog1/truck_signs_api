@@ -12,7 +12,7 @@
 ## Table of Contents
 * [Description](#description)
 * [Quickstart](#quickstart)
-  * [How to build the image](#how-to-build-the-image)
+* [How to build the image](#how-to-build-the-image)
 * [Usage](#usage)
   * [Screenshots Mobile View](#screenshots-mobile-view)
   * [Screenshots Desktop View](#screenshots-desktop-view)
@@ -141,8 +141,6 @@ Optional variables:
 - `DOCKER_STRIPE_PUBLISHABLE_KEY`, `DOCKER_STRIPE_SECRET_KEY` – Stripe API keys (only needed if payment is enabled).
 - `DOCKER_EMAIL_HOST_USER`, `DOCKER_EMAIL_HOST_PASSWORD` – SMTP credentials for sending emails.
 
-
-<a name="screenshots"></a>
 
 ## Screenshots Mobile View
 
