@@ -73,7 +73,7 @@ python -c "from django.core.management.utils import get_random_secret_key; print
 > [!NOTE]
 > Paste the generated key into your `.env`.
 
-##How to build the image
+## How to build the image
 
 Create Docker network
 
