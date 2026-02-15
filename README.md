@@ -45,6 +45,7 @@ Most of the views are CBV imported from _rest_framework.generics_, and they allo
 
 The behavior of some of the views had to be modified to address functionalities such as creation of order and payment, as in this case, for example, both functionalities are implemented in the same view, and so a _GenericAPIView_ was the view from which it inherits. Another example of this is the _UploadCustomerImage_ View that takes the vinyl template uploaded by the clients and creates a new product based on it.
 
+
 ## Quickstart
 Clone the repository from GitHub
 ```bash
@@ -114,6 +115,30 @@ The API is available at:
 The Django Admin interface is available at:
 
     http://<YOUR_IP>:8020/admin/
+
+
+## Usage
+
+#### Environment Configuration
+
+The application is configured via environment variables provided through
+an external `.env` file in the project root (loaded with `--env-file .env`).
+
+Required variables include:
+
+- `DOCKER_SECRET_KEY` – Django secret key used in the Docker environment.
+- `DB_NAME` – Name of the PostgreSQL database (e.g. `truck_signs`).
+- `DB_USER` – Database user (e.g. `truck_user`).
+- `DB_PASSWORD` – Database password used by the PostgreSQL container.
+- `DB_HOST` – Hostname of the database container (e.g. `truck-signs-db`).
+- `DB_PORT` – Database port (usually `5432`).
+- `DOCKER_ALLOWED_HOSTS` – Comma-separated list of allowed hosts (e.g. `<YOUR_IP>,localhost`).
+
+Optional variables:
+
+- `DOCKER_STRIPE_PUBLISHABLE_KEY`, `DOCKER_STRIPE_SECRET_KEY` – Stripe API keys (only needed if payment is enabled).
+- `DOCKER_EMAIL_HOST_USER`, `DOCKER_EMAIL_HOST_PASSWORD` – SMTP credentials for sending emails.
+
 
 <a name="screenshots"></a>
 
