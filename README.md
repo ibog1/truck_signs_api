@@ -106,7 +106,7 @@ docker run -d \
   --name truck-signs-app \
   --network truck-signs-net \
   -p 8020:8020 \
-  --env-file truck_signs_designs/settings/.env \
+  --env-file .env \
   truck-signs-app
 ```
 
@@ -165,7 +165,6 @@ Optional variables:
 
 
 
-<a name="useful_links"></a>
 ## Useful Links
 
 ### Postgresql Database
