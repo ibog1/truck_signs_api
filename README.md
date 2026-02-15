@@ -45,64 +45,75 @@ Most of the views are CBV imported from _rest_framework.generics_, and they allo
 
 The behavior of some of the views had to be modified to address functionalities such as creation of order and payment, as in this case, for example, both functionalities are implemented in the same view, and so a _GenericAPIView_ was the view from which it inherits. Another example of this is the _UploadCustomerImage_ View that takes the vinyl template uploaded by the clients and creates a new product based on it.
 
-## Installation
+## Quickstart
+Clone the repository from GitHub
+```bash
+git clone git@github.com:ibog1/truck_signs_api.git
+```
 
-1. Clone the repo:
-    ```bash
-    git clone <INSERT URL>
-    ```
-1. Configure a virtual env and set up the database. See [Link for configuring Virtual Environment](https://docs.python-guide.org/dev/virtualenvs/) and [Link for Database setup](https://www.digitalocean.com/community/tutorials/how-to-set-up-django-with-postgres-nginx-and-gunicorn-on-ubuntu-16-04).
-1. Configure the environment variables.
-    1. Copy the content of the example env file that is inside the truck_signs_designs folder into a .env file:
-        ```bash
-        cd truck_signs_designs/settings
-        cp simple_env_config.env .env
-        ```
-    1. The new .env file should contain all the environment variables necessary to run all the django app in all the environments. However, the only needed variables for the development environment to run are the following:
-        ```bash
-        SECRET_KEY
-        DB_NAME
-        DB_USER
-        DB_PASSWORD
-        DB_HOST
-        DB_PORT
-        STRIPE_PUBLISHABLE_KEY
-        STRIPE_SECRET_KEY
-        EMAIL_HOST_USER
-        EMAIL_HOST_PASSWORD
-        ```
-    1. For the database, the default configurations should be:
-        ```bash
-        DB_NAME=trucksigns_db
-        DB_USER=trucksigns_user
-        DB_PASSWORD=supertrucksignsuser!
-        DB_HOST=localhost
-        DB_PORT=5432
-        ```
-    1. The SECRET_KEY is the django secret key. To generate a new one see: [Stackoverflow Link](https://stackoverflow.com/questions/41298963/is-there-a-function-for-generating-settings-secret-key-in-django)
+Navigate to the folder
+```bash
+cd truck_signs_api
+```
 
-    1. **NOTE: not required for exercise**<br/>The STRIPE_PUBLISHABLE_KEY and the STRIPE_SECRET_KEY can be obtained from a developer account in [Stripe](https://stripe.com/). 
-        - To retrieve the keys from a Stripe developer account follow the next instructions:
-            1. Log in into your Stripe developer account (stripe.com) or create a new one (stripe.com > Sign Up). This should redirect to the account's Dashboard.
-            1. Go to Developer > API Keys, and copy both the Publishable Key and the Secret Key.
+Create .env
+```bash
+touch .env
+```
+> [!CAUTION]
+> The `.env` file contains dummy variables.
 
-    1. The EMAIL_HOST_USER and the EMAIL_HOST_PASSWORD are the credentials to send emails from the website when a client makes a purchase. This is currently disable, but the code to activate this can be found in views.py in the create order view as comments. Therefore, any valid email and password will work.
+Generate a Django secret key:
+```bash
+python -c "from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())"
+```
 
-1. Run the migrations and then the app:
-    ```bash
-    python manage.py migrate
-    python manage.py runserver
-    ```
-1. Congratulations =) !!! The App should be running in [localhost:8000](http://localhost:8000)
-1. (Optional step) To create a super user run:
-    ```bash
-    python manage.py createsuperuser
-    ```
+> [!NOTE]
+> Paste the generated key into your `.env`.
 
 
-__NOTE:__ To create Truck vinyls with Truck logos in them, first create the __Category__ Truck Sign, and then the __Product__ (can have any name). This is to make sure the frontend retrieves the Truck vinyls for display in the Product Grid as it only fetches the products of the category Truck Sign.
+Create Docker network
 
----
+``` bash
+docker network create truck-signs-net 
+```
+
+Start PostgreSQL container
+
+``` bash
+docker run -d \
+  --name truck-signs-db \
+  --network truck-signs-net \
+  -e POSTGRES_DB=truck_signs \
+  -e POSTGRES_USER=truck_user \
+  -e POSTGRES_PASSWORD=<POSTGRES_PASSWORD> \
+  postgres:13
+```
+
+Build backend image
+
+``` bash
+docker build -t truck-signs-app .
+```
+
+Run backend container
+
+``` bash
+docker run -d \
+  --name truck-signs-app \
+  --network truck-signs-net \
+  -p 8020:8020 \
+  --env-file truck_signs_designs/settings/.env \
+  truck-signs-app
+```
+
+The API is available at:
+
+    http://<YOUR_IP>:8020
+
+The Django Admin interface is available at:
+
+    http://<YOUR_IP>:8020/admin/
 
 <a name="screenshots"></a>
 
