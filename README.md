@@ -99,7 +99,7 @@ The Django Admin interface is available at:
 
 ## Usage
 
-#### Environment Configuration
+### Environment Configuration
 
 The application is configured via environment variables provided through
 an external `.env` file in the project root (loaded with `--env-file .env`).
