@@ -36,7 +36,7 @@ git clone git@github.com:ibog1/truck_signs_api.git
 cd truck_signs_api
 ```
 
-Create .env
+3. Create .env
 ```bash
 touch .env
 ```
