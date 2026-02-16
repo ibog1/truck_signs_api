@@ -77,7 +77,7 @@ docker run -d \
 docker build -t truck-signs-app .
 ```
 
-Run backend container
+4. Run backend container
 
 ``` bash
 docker run -d \
