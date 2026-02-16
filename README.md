@@ -43,7 +43,7 @@ touch .env
 > [!CAUTION]
 > The `.env` file contains dummy variables.
 
-Generate a Django secret key:
+4. Generate a Django secret key:
 ```bash
 python -c "from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())"
 ```
