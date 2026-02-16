@@ -71,7 +71,7 @@ docker run -d \
   postgres:13
 ```
 
-Build backend image
+3. Build backend image
 
 ``` bash
 docker build -t truck-signs-app .
