@@ -38,7 +38,7 @@ cd truck_signs_api
 
 3. Create .env
 ```bash
-touch .env
+cp truck_signs_designs/settings/simple_env_config.env .env
 ```
 > [!CAUTION]
 > The `.env` file contains dummy variables.
