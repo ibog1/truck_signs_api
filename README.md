@@ -59,7 +59,7 @@ python -c "from django.core.management.utils import get_random_secret_key; print
 docker network create truck-signs-net 
 ```
 
-Start PostgreSQL container
+2. Start PostgreSQL container
 
 ``` bash
 docker run -d \
