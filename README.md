@@ -14,7 +14,7 @@ __Signs for Trucks__ is an online store to buy pre-designed vinyls with custom l
 
 ## Table of Contents
 * [Quickstart](#quickstart)
-* [How to build the image](#how-to-build-the-image)
+  * [How to build the image](#how-to-build-the-image)
 * [Usage](#usage)
   * [Settings](#Settings)
   * [Models](#Models)
