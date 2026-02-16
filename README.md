@@ -113,6 +113,9 @@ Required variables include:
 - `DB_HOST` – Hostname of the database container (e.g. `truck-signs-db`).
 - `DB_PORT` – Database port (usually `5432`).
 - `DOCKER_ALLOWED_HOSTS` – Comma-separated list of allowed hosts (e.g. `<YOUR_IP>,localhost`).
+- `DJANGO_SUPERUSER_USERNAME` – Username of the Django admin user created by the entrypoint script.
+- `DJANGO_SUPERUSER_EMAIL` – Email address of the Django admin user.
+- `DJANGO_SUPERUSER_PASSWORD` – Password of the Django admin user.
 
 Optional variables:
 
