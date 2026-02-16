@@ -53,7 +53,7 @@ python -c "from django.core.management.utils import get_random_secret_key; print
 
 ## How to build the image
 
-Create Docker network
+1. Create Docker network
 
 ``` bash
 docker network create truck-signs-net 
