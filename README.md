@@ -26,7 +26,7 @@ __Signs for Trucks__ is an online store to buy pre-designed vinyls with custom l
 
 
 ## Quickstart
-Clone the repository from GitHub
+1. Clone the repository from GitHub
 ```bash
 git clone git@github.com:ibog1/truck_signs_api.git
 ```
